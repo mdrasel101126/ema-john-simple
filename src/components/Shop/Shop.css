@@ -8,3 +8,12 @@
     gap: 45px;
     margin: 100px 50px;
 }
+.cart-container{
+    background-color: rgba(255, 153, 0, 0.3);;
+}
+
+@media only screen and (max-width:1250px) {
+    .products-container{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
