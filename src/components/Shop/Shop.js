@@ -30,8 +30,18 @@ const Shop = () => {
   }, [products]);
 
   const handleAddToCart = (product) => {
-    /* console.log(product); */
-    const newCart = [...cart, product];
+    console.log(product);
+    let newCart;
+    const exits = cart.find((p) => p.id === product.id);
+    if (!exits) {
+      product.quantity = 1;
+      newCart = [...cart, product];
+    } else {
+      const rest = cart.filter((p) => p.id !== product.id);
+      exits.quantity = exits.quantity + 1;
+      newCart = [...rest, exits];
+    }
+
     setCart(newCart);
     addToDb(product.id);
   };
